@@ -14,7 +14,7 @@ flowchart TB
 
         E[Profile Edit] --> F["if type == 'manual':<br/>create UserGeneratedProfile()<br/>elif type == 'facebook':<br/>create AIFBProfile()<br/>elif type == 'instagram':<br/>create AIIGProfile()<br/>elif type == 'x':<br/>create AIXProfile()"]
 
-        F --> G["❌ Profile creation logic is repeated again."]
+        F --> G["❌ Profile creation logic<br/>is repeated again."]
 
         C --> H["Problem: Create/Modify profiles?<br/>Update multiple files."]
         G --> H
