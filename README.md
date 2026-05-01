@@ -17,7 +17,7 @@ flowchart TB
         
         C --> H["Problem: Create/Modify profiles?<br/>Update multiple files."]
         G --> H
-        end
+end
 ```
 
 ##### WITH Factory Pattern
@@ -43,5 +43,5 @@ flowchart TB
             H --> I["✅ Profile creation logic <br/>is centralized"]
             I --> J["✅ Main code does not need <br/>to know every exact class"]
             J --> K["✅ Easier to add new<br/>profile types later"]
-        end
+end
 ```
