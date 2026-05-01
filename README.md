@@ -1,31 +1,16 @@
-#### Without Factory Pattern
+flowchart TB
+    subgraph W["WITHOUT Factory"]
+        direction TB
 
-```mermaid
-flowchart TD
-    A[User starts profile creation] --> B{Profile type?}
-    B --> C[Create Manual Profile in Registration Code]
-    B --> D[Create Facebook AI Profile in Registration Code]
-    B --> E[Create Instagram AI Profile in Registration Code]
-    B --> F[Create X AI Profile in Registration Code]
+        A[Registration] --> B["if type == 'manual':<br/>create UserGeneratedProfile()<br/>elif type == 'facebook':<br/>create AIFBProfile()<br/>elif type == 'instagram':<br/>create AIIGProfile()<br/>elif type == 'x':<br/>create AIXProfile()"]
 
-    C --> G[Registration code becomes messy]
-    D --> G
-    E --> G
-    F --> G
-```
+        B --> C["❌ Profile creation logic is inside registration code and is DUPLICATED"]
+        B --> D["❌ Hard to edit when adding new profile types"]
 
-#### With Factory Pattern
+        E[Profile Edit] --> F["if type == 'manual':<br/>create UserGeneratedProfile()<br/>elif type == 'facebook':<br/>create AIFBProfile()<br/>elif type == 'instagram':<br/>create AIIGProfile()<br/>elif type == 'x':<br/>create AIXProfile()"]
 
-```mermaid
-flowchart TD
-    A[User starts profile creation] --> B[ProfileFactory]
-    B --> C[UserGeneratedProfile]
-    B --> D[AIFacebookProfile]
-    B --> E[AIInstagramProfile]
-    B --> F[AIXProfile]
+        F --> G["❌ Same profile creation logic is repeated again"]
 
-    C --> G[koUPle Profile Created]
-    D --> G
-    E --> G
-    F --> G
-```
+        C --> H["Problem: Create/Modify profiles?<br/>Update multiple files."]
+        G --> H
+    end
