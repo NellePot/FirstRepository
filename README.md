@@ -1,6 +1,6 @@
 #### Visual Diagram
 
-##### Without Factory Pattern
+##### WITHOUT Factory Pattern
 
 ```mermaid
 flowchart TB
@@ -19,4 +19,31 @@ flowchart TB
         C --> H["Problem: Create/Modify profiles?<br/>Update multiple files."]
         G --> H
     end
+```
+
+##### WITH Factory Pattern
+
+```mermaid
+    flowchart TD
+        subgraph WF
+            direction TB
+    
+            A["Registration / Profile Edit"] --> B["ProfileFactory.create(profile_type, data)"]
+    
+            B --> C["✅Factory decides what profile type to create"]
+    
+            C --> D["UserGeneratedProfile"]
+            C --> E["AIFBProfile"]
+            C --> F["AIIGProfile"]
+            C --> G["AIXProfile"]
+    
+            D --> H["koUPle Profile Created"]
+            E --> H
+            F --> H
+            G --> H
+    
+            H --> I["✅ Profile creation logic is centralized"]
+            I --> J["✅ Main code does not need to know every exact class"]
+            J --> K["✅ Easier to add new profile types later"]
+        end
 ```
