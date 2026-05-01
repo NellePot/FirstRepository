@@ -126,6 +126,8 @@ flowchart TB
 
 ```mermaid
 flowchart TB
+    subgraph W["WITHOUT Observer Pattern"]
+        direction TB
     A["koUPle App"]
 
     A --> B["IF Facebook:<br/>read full_name, about, likes, photos"]
