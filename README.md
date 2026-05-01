@@ -27,9 +27,9 @@ flowchart TD
     subgraph W["WITH Factory"]
         direction TB
 
-        A["Registration / Profile Edit"] --> B["ProfileFactory.create(profile_type, data)"]
+        A["Registration / Profile Edit"] --> B["ProfileFactory.<br/>create(profile_type, data)"]
 
-        B --> C["✅Factory decides what profile type to create"]
+        B --> C["✅Factory decides what<br/>profile type to create"]
 
         C --> D["UserGeneratedProfile"]
         C --> E["AIFBProfile"]
@@ -41,8 +41,8 @@ flowchart TD
         F --> H
         G --> H
 
-        H --> I["✅ Profile creation logic is centralized"]
-        I --> J["✅ Main code does not need to know every exact class"]
-        J --> K["✅ Easier to add new profile types later"]
+        H --> I["✅ Profile creation<br/>logic is centralized"]
+        I --> J["✅ Main code does not<br/>need to know every exact class"]
+        J --> K["✅ Easier to add new<br/>profile types later"]
     end
 ```
