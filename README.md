@@ -48,3 +48,74 @@ flowchart TD
         J --> K["✅ Easier to add new<br/>profile types later"]
     end
 ```
+
+# OBSERVER
+
+#### Visual Diagram
+
+##### WITHOUT Observer Pattern
+
+```mermaid
+flowchart TB
+    subgraph W["WITHOUT Observer Pattern"]
+        direction TB
+
+        A[User A hearts User B] --> B{Did User B heart back?}
+        B -->|Yes| C[MatchService creates match]
+
+        C --> D["sendMatchNotification()"]
+        C --> E["enableDirectMessage()"]
+        C --> F["recordSocialActivity()"]
+        C --> G["generateKopiIcebreaker()"]
+        C --> H["refreshMatchSuggestions()"]
+        C --> I["updateUnreadMatchCount()"]
+
+        D --> J["❌MatchService manually updates Notifications"]
+        E --> K["❌MatchService manually updates Chat or DM"]
+        F --> L["❌MatchService manually updates Activity Log"]
+        G --> M["❌MatchService manually triggers Kopi"]
+        H --> N["❌MatchService manually refreshes suggestions"]
+        I --> O["❌MatchService manually updates counters"]
+
+        J --> P["❌Problem: Match logic becomes crowded and tightly coupled"]
+        K --> P
+        L --> P
+        M --> P
+        N --> P
+        O --> P
+
+        P --> Q["Add a new match-related feature?<br/>Edit MatchService again."]
+    end
+```
+
+##### WITH Observer Pattern
+
+```mermaid
+flowchart TB
+    subgraph O["WITH Observer Pattern"]
+        direction TB
+
+        A[User A hearts User B] --> B{Did User B heart back?}
+        B -->|Yes| C[Match Event Created]
+
+        C --> D["✅notifyObservers(match)"]
+
+        D --> K["Show match notification"]
+        D --> L["Enable direct message"]
+        D --> M["Record social activity"]
+        D --> N["Kopi suggests an opening message"]
+        D --> P["Refresh possible matches"]
+        D --> Q["Update match or message count"]
+
+        K --> R["✅Each feature reacts on its own"]
+        L --> R
+        M --> R
+        N --> R
+        P --> R
+        Q --> R
+
+        R --> S["Add a new feature?<br/>Just add another observer."]
+    end
+```
+
+
