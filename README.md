@@ -1,42 +1,40 @@
-#### Visual Diagram
-
 ##### Without Factory Pattern
 
 ```mermaid
 flowchart TD
-    subgraph W["WITHOUT Factory"]
-        direction TB
+    A[User starts profile creation] --> B{Profile type}
 
-        A[Registration] --> B["if type == 'manual':<br/>create UserGeneratedProfile()<br/><br/>elif type == 'facebook':<br/>create AIFBProfile()<br/><br/>elif type == 'instagram':<br/>create AIIGProfile()<br/><br/>elif type == 'x':<br/>create AIXProfile()"]
+    B --> C[Registration code creates UserGeneratedProfile]
+    B --> D[Registration code creates AIFBProfile]
+    B --> E[Registration code creates AIIGProfile]
+    B --> F[Registration code creates AIXProfile]
 
-        C[Profile Edit] --> D["if type == 'manual':<br/>create UserGeneratedProfile()<br/><br/>elif type == 'facebook':<br/>create AIFBProfile()<br/><br/>elif type == 'instagram':<br/>create AIIGProfile()<br/><br/>elif type == 'x':<br/>create AIXProfile()"]
+    C --> G[Problem: registration code knows every profile class]
+    D --> G
+    E --> G
+    F --> G
 
-        B --> E["❌ Profile creation logic is inside registration code"]
-        D --> F["❌ Same profile creation logic is repeated again"]
-
-        E --> G["Problem: Add a new profile type?<br/>Update multiple files."]
-        F --> G
-    end
+    G --> H[Problem: adding a new profile type means editing main code again]
 ```
 
 ##### With Factory Pattern
 
 ```mermaid
 flowchart TD
-    subgraph WF["WITH Factory"]
-        direction TB
+    A[User starts profile creation] --> B[Send profile_type and data to ProfileFactory]
 
-        A[Registration] --> C["ProfileFactory.create(profile_type, data)"]
-        B[Profile Edit] --> C
+    B --> C{ProfileFactory decides what to create}
 
-        C --> D["Creates:<br/>• UserGeneratedProfile<br/>• AIFBProfile<br/>• AIIGProfile<br/>• AIXProfile"]
+    C --> D[UserGeneratedProfile]
+    C --> E[AIFBProfile]
+    C --> F[AIIGProfile]
+    C --> G[AIXProfile]
 
-        D --> E["✅ One place for profile creation logic"]
-        D --> F["✅ Easier to add new profile types"]
-        D --> G["✅ Cleaner registration and profile editing code"]
+    D --> H[koUPle Profile Created]
+    E --> H
+    F --> H
+    G --> H
 
-        E --> H["Benefit: Add TikTok profile generation?<br/>Update ONLY the factory."]
-        F --> H
-        G --> H
-    end
+    H --> I[Benefit: profile creation is centralized]
+    I --> J[Adding a new profile type only updates the factory]
 ```
