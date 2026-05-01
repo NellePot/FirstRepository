@@ -1,4 +1,4 @@
-#FACTORY
+## FACTORY
 
 #### Visual Diagram
 
