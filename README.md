@@ -4,7 +4,6 @@
 
 ```mermaid
 flowchart TB
-    subgraph W["WITHOUT Factory"]
         direction TB
 
         A[Registration] --> B["if type == 'manual':<br/>create UserGeneratedProfile()<br/>elif type == 'facebook':<br/>create AIFBProfile()<br/>elif type == 'instagram':<br/>create AIIGProfile()<br/>elif type == 'x':<br/>create AIXProfile()"]
@@ -24,11 +23,10 @@ flowchart TB
 ##### WITH Factory Pattern
 
 ```mermaid
-    flowchart TD
-        subgraph WF
+    flowchart TB
             direction TB
     
-            A["Registration / Profile Edit"] --> B["ProfileFactory.create(profile_type, data)"]
+            A["Registration / Profile Edit"] --> B["ProfileFactory.<br/>create(profile_type, data)"]
     
             B --> C["✅Factory decides what profile type to create"]
     
@@ -42,8 +40,8 @@ flowchart TB
             F --> H
             G --> H
     
-            H --> I["✅ Profile creation logic is centralized"]
-            I --> J["✅ Main code does not need to know every exact class"]
-            J --> K["✅ Easier to add new profile types later"]
+            H --> I["✅ Profile creation logic <br/>is centralized"]
+            I --> J["✅ Main code does not need <br/>to know every exact class"]
+            J --> K["✅ Easier to add new<br/>profile types later"]
         end
 ```
