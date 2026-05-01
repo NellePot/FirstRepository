@@ -134,7 +134,7 @@ flowchart TB
     A --> C["ELIF Instagram:<br/>read username, bio, followed_topics, media"]
     A --> D["ELIF X:<br/>read display_name, profile_description, hashtags, profile_images"]
 
-    B --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
+    B --> E["❌Scattered platform-<br/>specific logic<br/>❌Hard to maintain<br/>❌Hard to add<br/>new platforms"]
     C --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
     D --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
 
