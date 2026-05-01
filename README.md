@@ -138,7 +138,7 @@ flowchart TB
     C --> E["❌Scattered platform-<br/>specific logic<br/>❌Hard to maintain<br/>❌Hard to add<br/>new platforms"]
     D --> E["❌Scattered platform-<br/>specific logic<br/>❌Hard to maintain<br/>❌Hard to add<br/>new platforms"]
 
-    E --> H["koUPle must understand every<br/>social media API directly"]
+    E --> H["koUPle must understand<br/>every social media API directly"]
 end
 ```
 
