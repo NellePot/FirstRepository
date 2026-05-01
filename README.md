@@ -23,7 +23,7 @@ flowchart TB
 ##### WITH Factory Pattern
 
 ```mermaid
-    flowchart TB
+flowchart TB
             direction TB
     
             A["Registration / Profile Edit"] --> B["ProfileFactory.<br/>create(profile_type, data)"]
