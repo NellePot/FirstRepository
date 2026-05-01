@@ -130,15 +130,15 @@ flowchart TB
         direction TB
     A["koUPle App"]
 
-    A --> B["IF Facebook:<br/>read full_name, about, likes, photos"]
-    A --> C["ELIF Instagram:<br/>read username, bio, followed_topics, media"]
-    A --> D["ELIF X:<br/>read display_name, profile_description, hashtags, profile_images"]
+    A --> B["IF Facebook:<br/>read full_name,<br/>about,<br/>likes,<br/>photos"]
+    A --> C["ELIF Instagram:<br/>read username,<br/>bio,<br/>followed_topics,<br/>media"]
+    A --> D["ELIF X:<br/>read display_name,<br/>profile_description,<br/>hashtags,<br/>profile_images"]
 
     B --> E["❌Scattered platform-<br/>specific logic<br/>❌Hard to maintain<br/>❌Hard to add<br/>new platforms"]
-    C --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
-    D --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
+    C --> E["❌Scattered platform-<br/>specific logic<br/>❌Hard to maintain<br/>❌Hard to add<br/>new platforms"]
+    D --> E["❌Scattered platform-<br/>specific logic<br/>❌Hard to maintain<br/>❌Hard to add<br/>new platforms"]
 
-    E --> H["koUPle must understand every social media API directly"]
+    E --> H["koUPle must understand every<br/>social media API directly"]
 end
 ```
 
