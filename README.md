@@ -1,3 +1,8 @@
+#### Visual Diagram
+
+##### Without Factory Pattern
+
+```mermaid
 flowchart TB
     subgraph W["WITHOUT Factory"]
         direction TB
@@ -14,3 +19,4 @@ flowchart TB
         C --> H["Problem: Create/Modify profiles?<br/>Update multiple files."]
         G --> H
     end
+```
