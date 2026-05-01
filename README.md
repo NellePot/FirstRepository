@@ -1,3 +1,5 @@
+#FACTORY
+
 #### Visual Diagram
 
 ##### Without Factory Pattern
