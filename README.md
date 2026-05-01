@@ -118,4 +118,29 @@ flowchart TB
     end
 ```
 
+# ADAPTER
+
+#### Visual Diagram
+
+##### WITHOUT Adapter Pattern
+
+```mermaid
+flowchart TB
+    A["koUPle App"]
+
+    A --> B["IF Facebook:<br/>read full_name, about, likes, photos"]
+    A --> C["ELIF Instagram:<br/>read username, bio, followed_topics, media"]
+    A --> D["ELIF X:<br/>read display_name, profile_description, hashtags, profile_images"]
+
+    B --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
+    C --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
+    D --> E["❌Scattered platform-specific logic<br/>❌Hard to maintain<br/>❌Hard to add new platforms"]
+
+    E --> H["koUPle must understand every social media API directly"]
+end
+```
+
+
+
+
 
